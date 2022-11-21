@@ -7,7 +7,9 @@ Sources:
 - https://github.com/DakotaLMartinez/rails-devise-jwt-tutorial
 - https://www.reddit.com/r/Nuxt/comments/js887t/comment/gbxprxa/?utm_source=share&utm_medium=web2x&context=3
 
-## To Run 
+## To Run/Deploy
+
+### Install
 - terminal tab #1:
   - `cd backend`
   - `bundle install`
@@ -18,9 +20,44 @@ Sources:
   - `cd frontend`
   - `yarn`
   - `yarn dev`
+
+### Test App Locally
 - in browser go to the `localhost:<port>` outputted in the `yarn dev` line above
   - log in as `test@mail.com`/`password` and go to `localhost:3000/private-contents`
   - you should see a list of "private content" items
+
+### Deploy To Heroku
+- `cd` into the `frontend` folder
+- `yarn clean`
+- `yarn build`
+- `yarn copy`
+- `cd` into app's main, top level folder
+- `git add .`
+- `git commit -m "init"`
+- `heroku login` -> any key -> login on webpage
+  - if `heroku login` gives you an `--openssl-legacy-provider is not allowed in NODE_OPTIONS` error, run `unset NODE_OPTIONS` and then run `heroku login` again
+- `heroku create`
+- in `frontend/nuxt.config.js` change the <heroku app name> in the last url in line 30 to the app name outputted in the above `heroku create` (ie, `thawing-headland-13757`)
+- `yarn clean`
+- `yarn build`
+- `yarn copy`
+- `cd` into the `backend` folder
+- `bundle lock --add-platform x86_64-linux`
+- `cd` into main app root folder
+- `git add .`
+- `git commit -m "updated heroku app name in nuxt.config.js axios setting"`
+- `cd` into `backend` folder
+- `heroku config`
+- `EDITOR='code --wait' rails credentials:edit` -> copy secret keybase string
+- `heroku config:set SECRET_KEYBASE=<secret keybase copied above>`
+- copy master key from `backend/config/master.key`
+- ``heroku config:set RAILS_MASTER_KEY=`cat config/master.key` --app '<heroku app name>'``
+- `cd` into main app root folder
+- `git subtree push --prefix backend heroku main`
+- `heroku run rake db:migrate`
+- `heroku run rake db:seed`
+- `heroku ps:scale web=1`
+- `heroku open`
 
 ## To Create
 
