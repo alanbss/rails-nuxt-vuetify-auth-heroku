@@ -9,6 +9,11 @@ Sources:
 
 ## To Run/Deploy
 
+### Setup
+- in `backend/config/initializers/devise.rb` paste your app name (kebab-case) where it says `<app name>`
+- in `backend/db/lib/tasks` paste your app name (kebab-case) where it says `<app name>`
+- for `backend/lib/tasks/testapp.rake`, change the filename `testapp.rake` to whatever your app name is (kebab-case) with `.rake` extension
+
 ### Install
 - terminal tab #1:
   - `cd backend`

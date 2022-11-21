@@ -1,4 +1,4 @@
-namespace :testapp do
+namespace :<app name> do
   
   desc "clean"
   task clean: :environment do

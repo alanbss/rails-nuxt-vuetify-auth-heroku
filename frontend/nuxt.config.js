@@ -27,7 +27,7 @@ export default {
     '@nuxtjs/axios',
   ],
   axios: {
-    baseURL: dev ? 'http://localhost:3000/api' : 'https://pacific-eyrie-87021.herokuapp.com/api',
+    baseURL: dev ? 'http://localhost:3000/api' : '<heroku app name>.herokuapp.com/api',
   },
   auth: {
     strategies: {

@@ -1,9 +1,7 @@
 Devise.setup do |config|
-  config.mailer_sender = 'testapp@example.com'
+  config.mailer_sender = '<app name>@example.com'
   config.jwt do |jwt|
-    # jwt.secret = Rails.application.credentials.fetch(:secret_key_base)
     jwt.secret = Rails.env.production? ? ENV["SECRET_KEY_BASE"] : Rails.application.credentials.fetch(:secret_key_base)
-    # jwt.secret = ENV["SECRET_KEY_BASE"]
     jwt.dispatch_requests = [
       ['POST', %r{^/login$}]
     ]
