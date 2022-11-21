@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @private_content %>
+
+<div>
+  <%= link_to "Edit this private content", edit_private_content_path(@private_content) %> |
+  <%= link_to "Back to private contents", private_contents_path %>
+
+  <%= button_to "Destroy this private content", @private_content, method: :delete %>
+</div>

@@ -1,0 +1,7 @@
+PublicContent.create(name:'public content 1')
+PublicContent.create(name:'public content 2')
+PublicContent.create(name:'public content 3')
+PrivateContent.create(name:'private content 1')
+PrivateContent.create(name:'private content 2')
+PrivateContent.create(name:'private content 3')
+User.create(email:'test@mail.com',password:'password')

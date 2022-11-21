@@ -1,0 +1,2 @@
+class PublicContent < ApplicationRecord
+end

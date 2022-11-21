@@ -1,0 +1,2 @@
+class PrivateContent < ApplicationRecord
+end

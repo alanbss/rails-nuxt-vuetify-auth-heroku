@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Private contents</h1>
+
+<div id="private_contents">
+  <% @private_contents.each do |private_content| %>
+    <%= render private_content %>
+    <p>
+      <%= link_to "Show this private content", private_content %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New private content", new_private_content_path %>
